@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Farkit1", "Farkit1\Farkit1.fsproj", "{0F7BF455-3F32-4B30-A947-94E9FB106168}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F7BF455-3F32-4B30-A947-94E9FB106168}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{0F7BF455-3F32-4B30-A947-94E9FB106168}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{0F7BF455-3F32-4B30-A947-94E9FB106168}.Release|iPhone.ActiveCfg = Release|iPhone
+		{0F7BF455-3F32-4B30-A947-94E9FB106168}.Release|iPhone.Build.0 = Release|iPhone
+		{0F7BF455-3F32-4B30-A947-94E9FB106168}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{0F7BF455-3F32-4B30-A947-94E9FB106168}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{0F7BF455-3F32-4B30-A947-94E9FB106168}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{0F7BF455-3F32-4B30-A947-94E9FB106168}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+EndGlobal
