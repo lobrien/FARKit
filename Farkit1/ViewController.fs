@@ -12,10 +12,10 @@ type ARDelegate() =
 
    override this.DidAddNode (renderer, node, anchor) = 
       match anchor <> null && anchor :? ARPlaneAnchor with 
-      | true -> anchor :?> ARPlaneAnchor |> this.PlaceAnchorNode
+      | true -> anchor :?> ARPlaneAnchor |> this.PlaceAnchorNode node
       | false -> ignore()   
 
-   member this.PlaceAnchorNode ( planeAnchor : ARPlaneAnchor ) = 
+   member this.PlaceAnchorNode ( node : SCNNode) (planeAnchor : ARPlaneAnchor ) = 
      let plane = SCNPlane.Create (nfloat( planeAnchor.Extent.X ) , nfloat ( planeAnchor.Extent.Z ) )
      plane.FirstMaterial.Diffuse.Contents <- UIColor.LightGray
      let planeNode = SCNNode.FromGeometry plane
@@ -105,7 +105,9 @@ type ViewController (handle:IntPtr) =
 
    member this.WorldPositionFromHitTest pt = 
       // Hit-test against existing anchors
-      let existingAnchorHits = arsceneview.HitTest ( pt, ARHitTestResultType.ExistingPlaneUsingExtent ) |> Seq.filter (fun result -> result.Anchor :? ARPlaneAnchor)
+      let existingAnchorHits = 
+         arsceneview.HitTest ( pt, ARHitTestResultType.ExistingPlaneUsingExtent ) 
+         |> Seq.filter (fun result -> result.Anchor :? ARPlaneAnchor)
       match existingAnchorHits |> Seq.isEmpty  with
       | false -> 
          let first = existingAnchorHits |> Seq.head
@@ -114,7 +116,7 @@ type ViewController (handle:IntPtr) =
          | true -> None
          | false -> 
             (pos, first.Anchor :?> ARPlaneAnchor) |> Some
-      | true -> None
+      | true -> None  //No plane anchors found
 
    member this.PlaceCube (worldPosition , planeAnchor )= 
       //Put a box on it
